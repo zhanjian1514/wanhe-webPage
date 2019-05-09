@@ -1,0 +1,212 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+    <title>万和证券</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready file:; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <link href="resource/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="resource/index.css" rel="stylesheet" type="text/css" />
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript" src="resource/toastr.min.js"></script>
+    <script type="text/javascript" src="resource/index.js"></script>
+</head>
+
+<body>
+    <div class="mask" style="display: none;">
+            <p class="video_open" >请点击右上角选择浏览器打开</p>  
+        </div>
+         <div id="bg" class="weixin-tip" onclick="close()" style="display: none;">
+            <img src="resource/images/Android_wechat.png" alt="微信打开" class="weixin-img"> 
+        </div> 
+        <div id="iosbg" class="weixin-tip" onclick="close()" style="display: none;">
+            <img src="resource/images/wechat.png" alt="微信打开" class="weixin-img"> 
+        </div> 
+    <div class=" dis-fx position flex-direction alc-end" style="height: 100%;">
+
+        <div class="aMain flex1">
+            <div class="m-marketing ">
+
+                <div class="dis-fx alc-start m-margeting-top">
+                    <div class="m-margeting-name flex1">
+                        <div id="personal_position">--</div>
+                        <div class="info">
+                            职业编号：<span id="personal_paper">--</span>
+                        </div>
+                    </div>
+                    <i class="m-btn-white">产销推荐人</i>
+                </div>
+
+                <div class="dis-fx m-view">
+                    <div class="flex1 alc-start dis-fx">
+                        <div>
+                            <div id="production" class="m-view-name">--</div>
+                            <div id="proType" class="m-view-info">--</div>
+                        </div>
+                    </div>
+                    <div id="product_profit" style="text-align: center;display: none;">
+                        <div id="profit_value" class="m-view-name">--</div>
+                        <div class="m-view-info">预期年化收益率</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="account" style="display: none;">
+                <div class="dis-fx m-view m-view-whiteBg m-view-border">
+                    <div class="flex1 alc dis-fx flex-direction" style="border-right:1px solid #eee">
+                        <div style="text-align: center">
+                            <div id="account_depart" class="m-view-name">--</div>
+                            <div class="m-view-info">营业部</div>
+                        </div>
+                    </div>
+                    <div class="flex1 alc dis-fx flex-direction">
+                        <div style="text-align: center">
+                            <div id="account_bank" class="m-view-name">--</div>
+                            <div class="m-view-info">存管银行</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="card_view" class="m-view-whiteBg">
+                <div class="m-card">
+                    <div class="m-card-head">
+                        --
+                    </div>
+                    <div class="m-card-body">
+                        <div class="m-marketing-box dis-fx alc">
+                            <div id="business_1" class="flex1 dis-fx alc flex-direction">
+                                <img src="" alt="">
+                                <span class="name">--</span>
+                            </div>
+                            <div id="business_2" class="flex1 dis-fx alc flex-direction">
+                                <img src="" alt="">
+                                <span class="name">--</span>
+                            </div>
+                            <div id="business_3" class="flex1 dis-fx alc flex-direction">
+                                <img src="" alt="">
+                                <span class="name">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               <!--  <div style="width:90%; margin: 24px auto">
+                    <a class="m-btn-bottom" id="btn-bottom" href="javascript:;">--</a>
+                </div> -->
+
+            </div>
+
+             <!-- start -->
+           <div id="finance_product_view" class="m-view-whiteBg" style="display: none;" >
+            <div class="m-card">
+                <div class="m-finance-card-head dis-fx alc-start">
+                    <img id="head_img" class="name" src="resource/images/icon_gp.png" />
+                    <span id="head_name" class="name" style="padding:0px 12px">--</span>
+                    <span  id="head_code" class="title">--</span>
+                </div>
+                <div id="finance_body" class="m-card-body">
+                    <div class="m-marketing-box dis-fx alc">
+                        <div class="flex1 dis-fx alc flex-direction">
+                            <span id="left_data" class="info">---
+                                <span id="left_unit" class='unit'></span> 
+                            </span>
+                            <span id="left_label" class="name">--</span>
+                        </div>
+                        <div id="right_view" class="flex1 dis-fx alc flex-direction">
+                            <span id="right_data" class="info">---
+                                <span id="right_unit" class='unit'></span> 
+                            </span>
+                            <span id="right_label" class="name">--</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="jj_body" class="m-card-body" style="display: none">
+                        <div class="m-marketing-box dis-fx alc">
+                            <div class="flex1 dis-fx alc flex-direction">
+                                <span id="jj_data" class="info">                                  
+                                </span>
+                                <span id="jj_label" class="name"></span>
+                            </div>
+                    </div>
+                </div>
+                <div class="m-finance-card-foot dis-fx alc">
+                    <div id="foot_left" class="flex1 dis-fx alc-start">
+                        <img src="" alt="" />
+                        <span class="textInfo">--</span>
+                    </div>
+                    <div id="foot_center" class="flex1 dis-fx alc">
+                        <img src="" alt="" />
+                        <span class="textInfo">--风险</span>
+                    </div>
+                    <div id="foot_right" class="flex1 dis-fx alc-end">
+                        <img src="" alt="" />
+                        <span class="textInfo">--</span>
+                    </div>
+                </div> 
+            </div>
+
+          
+
+        </div>
+        
+        <div id="btn-view" style="width:90%; margin: 24px auto; display: none;">
+            <a class="m-btn-bottom" id="btn-bottom" href="javascript:;">--</a>
+        </div> 
+       <!-- end -->
+
+        </div>
+
+    </div>
+
+    <div class="m-modal" id="modal">
+        <div class="m-modal-body">
+            <div class="m-body-content">
+                <form class=" width70 mg-auto">
+                    <div class="input-item dis-fx alc-start">
+                        <input class="tel-input-event m-search-input flex1" 
+                        
+                            placeholder="输入手机号" 
+                            id="phone">
+                        <span class="close">×</span>
+                    </div>
+                    <div class="dis-fx alc-start" style="margin-bottom:20px;">
+                        <div class="input-item dis-fx alc-start flex1">
+                            <input 
+                            class="tel-input-event m-search-input flex1" 
+                            placeholder="输入验证码" 
+                            id="code" 
+                            oninput="if(value.length>6)value=value.slice(0,6)"
+                            >
+                            <span class="close" onClick="clearInput('code')">×</span>
+                            <span class="m-btn m-btn-small dis-fx alc" onclick="time($(this))" id="btn-code">获取验证码</span>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <a class="m-btn dis-fx alc" id="btn-submit" href="javascript:;">下载app</a>
+                    </div>
+
+                    <div class="m-alert">
+                        温馨提示：开户请先下载app
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+        <div class="m-modal-close" id="colse">
+            <div class="m-close-text" onclick="close()">×</div>
+        </div>
+    </div>
+
+
+    <div class="m-ahref" id="ahref" onclick="close()">&nbsp;</div>
+</body>
+
+</html>

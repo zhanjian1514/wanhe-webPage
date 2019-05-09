@@ -1,0 +1,66 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+    <title>万和证券</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0 , maximum-scale=1.0, user-scalable=0">
+    <link href="resource/index.css" rel="stylesheet" type="text/css" />
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript" src="resource/index.js"></script>
+    <script type="text/javascript" src="resource/utils.js"></script>
+    <script>
+      $(function(){
+        $("#shareWechat").click(function(){
+          var ipaUrl = 'https://fir.im/juft';
+          var apkUrl = 'https://fir.im/p7jf';
+          openApp("com.wanhesec", ipaUrl, apkUrl, params, popUp);
+        })
+      });
+    </script>
+</head>
+
+<body>
+    <div class=".mask">
+        <a href="com.wanhesec://" id="shareWechat" >跳转至万和APP</a>
+    </div>
+
+    <div class="m-modal" id="modal">
+      <div class="m-modal-body">
+          <div class="m-body-content">
+              <form class=" width70 mg-auto">
+                  <div class="input-item dis-fx alc-start">
+                      <input class="tel-input-event m-search-input flex1" oninput="onPhoneChange()" oninput="if(value.length>11)value=value.slice(0,11)"
+                          placeholder="输入手机号" id="phone">
+                      <span class="close">×</span>
+                  </div>
+                  <div class="dis-fx alc-start" style="margin-bottom:20px;">
+                      <div class="input-item dis-fx alc-start flex1">
+                          <input class="tel-input-event m-search-input flex1" placeholder="输入验证码" id="code" oninput="if(value.length>6)value=value.slice(0,6)">
+                          <span class="close" onClick="clearInput('code')">×</span>
+                          <span class="m-btn m-btn-small dis-fx alc" id="btn-code">获取验证码</span>
+                      </div>
+
+                  </div>
+
+                  <div>
+                      <a class="m-btn dis-fx alc" id="btn-submit" href="javascript:;">下载app</a>
+                  </div>
+
+                  <div class="m-alert">
+                      温馨提示：开户请先下载app
+                  </div>
+
+
+              </form>
+          </div>
+      </div>
+      <div class="m-modal-close" id="colse">
+          <div class="m-close-text" onclick="close()">×</div>
+      </div>
+  </div>
+</body>
+
+</html>
