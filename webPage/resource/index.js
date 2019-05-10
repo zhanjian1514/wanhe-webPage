@@ -20,7 +20,7 @@ toastr.options = {
 
 // var reLoadLeftTime = false ;
 //监听浏览器当前页面是否被激活的事件
-var hiddenProperty = 'hidden' in document ? 'hidden' :  'webkitHidden' in document ? 'webkitHidden' :  'mozHidden' in document ? 'mozHidden' :  null;
+// var hiddenProperty = 'hidden' in document ? 'hidden' :  'webkitHidden' in document ? 'webkitHidden' :  'mozHidden' in document ? 'mozHidden' :  null;
 // var isHidden = document[hiddenProperty];
 // var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
 // var onVisibilityChange = function(){
@@ -358,7 +358,7 @@ function showDownloadModal() {
 //弹框Model
 var popUp=(function(url){
   setTimeout(() => {
-    if (!document[hiddenProperty]) {
+    // if (!document[hiddenProperty]) {
       var ahref = document.getElementById('ahref');
       var modal = document.getElementById('modal');
       var btn = document.getElementById('btn-submit');
@@ -373,8 +373,19 @@ var popUp=(function(url){
         var phone = $("#phone").val();
         openAndDownload(phone, checkCode, url);
       }
-    }
+    // }
   }, 500);
+  document.addEventListener(visibilityChange, function() {
+    console.log("当前页面是否被隐藏：" + document[hidden]);
+    setTimeout(function(){
+      // alert("进来",modal.style.display);
+      console.log("jinlai",modal.style.display);
+      if(document[hidden]){
+        ahref.style.display = "none";
+        modal.style.display = "none";
+      }
+    }, 2000);
+  }, false);
 });
 
 function openAndDownload(phone, checkCode, url){
@@ -537,3 +548,22 @@ var openApp = function(appName, ipaUrl, apkUrl, params, callback) {
     // }, 500);
   }
 }         
+var hidden, state, visibilityChange;
+if (typeof document.hidden !== "undefined") {
+    hidden = "hidden";
+    visibilityChange = "visibilitychange";
+    state = "visibilityState";
+} else if (typeof document.mozHidden !== "undefined") {
+    hidden = "mozHidden";
+    visibilityChange = "mozvisibilitychange";
+    state = "mozVisibilityState";
+} else if (typeof document.msHidden !== "undefined") {
+    hidden = "msHidden";
+    visibilityChange = "msvisibilitychange";
+    state = "msVisibilityState";
+} else if (typeof document.webkitHidden !== "undefined") {
+    hidden = "webkitHidden";
+    visibilityChange = "webkitvisibilitychange";
+    state = "webkitVisibilityState";
+}
+ 
